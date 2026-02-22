@@ -1,3 +1,5 @@
-# Blog Snippets of Code and Config
+# Code & Config Snippets
 
-I often post code and config snippets on my blog posts and should really commit them to a repo.
+https://benhoskins.dev
+
+I often post code and config snippets on my blog posts. It's probably time to actually start version controlling them as I tweak them from time to time.
