@@ -1,0 +1,62 @@
+(caddy-sensible-defaults) {
+	import caddy-sensible-defaults-v1
+}
+
+(caddy-sensible-defaults-v1) {
+
+	# Redirect www.
+	@www header_regexp www Host ^www\.(.*)$
+	redir @www https://{re.www.1} permanent
+
+	# Compress if wanted.
+	encode
+
+	# Hidden Files.
+	@forbidden_dotfiles {
+		not path /.well-known/*
+		path */.*
+	}
+	error @forbidden_dotfiles 404
+
+	# Error Pages
+	# https://caddyserver.com/docs/caddyfile/directives/handle_errors#examples
+	handle_errors {
+		# does this exist?
+		@custom_err file /errors/{err.status_code}.html
+		handle @custom_err {
+			rewrite * {file_match.relative}
+			file_server
+		}
+		# if not, text error page.
+		respond "{err.status_code} {err.status_text}"
+	}
+
+	# Outgoing Security Headers & CORs
+	header {
+		# Remove Server info
+		-Server
+		# Remove Via (similar to Server header)
+		-Via
+		# Proxy Authentication Key
+		-Via-Key
+		# Remove X-Powered-By (Framework name)
+		-X-Powered-By
+		# Security headers
+		?X-Content-Type-Options "nosniff"
+		?X-Frame-Options "SAMEORIGIN"
+		?Referrer-Policy "no-referrer-when-downgrade"
+		# CORS
+		?Access-Control-Allow-Origin "*"
+	}
+
+	# Cache Controls
+	@static_cache {
+		file
+		path /assets/* *.css *.js *.ico *.gif *.jpg *.jpeg *.png *.svg *.woff
+	}
+	handle @static_cache {
+		# `?` = passively set header if none upstream
+		header ?Cache-Control "public, max-age=604800, must-revalidate"
+	}
+
+}
