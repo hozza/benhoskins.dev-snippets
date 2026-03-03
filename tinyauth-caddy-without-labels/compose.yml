@@ -1,0 +1,30 @@
+services:
+
+  caddy:
+    container_name: test1-caddy
+    image: docker.io/caddy:latest
+    volumes:
+        - ./caddy:/etc/caddy
+        # Match this internal path below in PHP.
+        - ./dist:/srv/dist
+    ports:
+        - 80:80
+        - 443:443
+
+  tinyauth:
+    image: ghcr.io/steveiliop56/tinyauth:v4
+    environment:
+      # - DISABLE_ANALYTICS=true
+      - FORGOT_PASSWORD_MESSAGE=Contact the admin.
+      - APP_URL=https://auth.test.internal
+      # user:password : Don't use in production!
+      - USERS=user:$$2a$$10$$UdLYoJ5lgPsC0RKqYH/jMua7zIn0g9kPqWmhYayJYLaZQ/FTmH2/u
+    volumes:
+      - "./tinyauth:/data"
+
+  php:
+    container_name: test-php
+    image: docker.io/php:8.5-fpm
+    volumes:
+        # Match this internal path above in Caddy.
+        - ./dist:/srv/dist

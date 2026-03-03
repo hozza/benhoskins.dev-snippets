@@ -1,0 +1,46 @@
+(auth_forwarder) {
+	# Ideally we'd prevent spoofing of auth during a bypass of forward_auth (i.e. path match, app controller issue) - but caddy will defer deletions until request, which will remove our legit headers also.
+	#request_header -Remote-*
+
+	forward_auth tinyauth:3000 {
+		uri /api/auth/caddy
+		# copy authentication response headers to app for authorisation.
+		copy_headers Remote-User Remote-Groups Remote-Name Remote-Email
+	}
+
+	# App should check this key before accepting `Remote-*` headers. A way of trusting this proxy when IP's can be sketchy due to Docker userland proxy. This can only be obtained by the app on the internal proxy connection. Setting here rather than `header_up` as we want it across all auth imports.
+	request_header Via-Key "iHhyJokmS6claDuR"
+}
+
+test.internal {
+	tls internal {
+		on_demand
+	}
+
+	root * /srv/dist/public
+
+	import caddy-sensible-defaults
+
+	@auth_paths path /admin /admin/*
+	handle @auth_paths {
+		import auth_forwarder
+	}
+
+	# Enable the static file server.
+	file_server
+
+	# Serve PHP files via php-fpm.
+	# https://caddyserver.com/docs/caddyfile/directives/php_fastcgi#examples
+	php_fastcgi lumber-php:9000
+
+}
+
+auth.test.internal {
+	tls internal {
+		on_demand
+	}
+
+	import caddy-sensible-defaults
+
+	reverse_proxy tinyauth:3000
+}
