@@ -1,0 +1,991 @@
+/* Miniflux Capacitor Custom CSS Theme
+
+Instructions & info:
+https://benhoskins.dev/miniflux-capacitor-theme/
+
+Inspired by:
+- https://github.com/andymason/miniflux-css-theme/tree/main
+- https://github.com/ronilaukkarinen/miniflux-theme-midnight/tree/master
+
+*/
+
+/* light and dark theme vars */
+:root {
+  --body-color: #1d1d1f;
+  --body-background: #fff;
+  --hr-border-color: #d2d2d7;
+  --title-color: #1d1d1f;
+  --link-color: #007aff;
+  --link-focus-color: #007aff;
+  --link-hover-color: #1d1d1f;
+  --link-visited-color: #5856d6;
+
+  --header-list-border-color: #d2d2d7;
+  --header-link-color: #1d1d1f;
+  --header-link-focus-color: #6e6e73;
+  --header-link-hover-color: #6e6e73;
+  --header-active-link-color: #1d1d1f;
+
+  --page-header-title-border-color: #1d1d1f;
+
+  --logo-color: #1d1d1f;
+  --logo-hover-color-span: #1d1d1f;
+
+  --table-border-color: #d2d2d7;
+  --table-th-background: #f5f5f7;
+  --table-th-color: #1d1d1f;
+  --table-tr-hover-background-color: #f5f5f7;
+  --table-tr-hover-color: #1d1d1f;
+
+  --button-primary-border-color: #0071e3;
+  --button-primary-background: #0071e3;
+  --button-primary-color: #fff;
+  --button-primary-focus-border-color: #0077ed;
+  --button-primary-focus-background: #0077ed;
+
+  --input-border: 1px solid #d2d2d7;
+  --input-background: #fff;
+  --input-color: #1d1d1f;
+  --input-placeholder-color: #86868b;
+
+  --input-focus-color: #1d1d1f;
+  --input-focus-border-color: #0071e3;
+  --input-focus-box-shadow: 0 0 0 3px rgba(0, 113, 227, 0.3);
+
+  --alert-color: #86868b;
+  --alert-background-color: #fff2d4;
+  --alert-border-color: #ffd60a;
+
+  --alert-success-color: #34c759;
+  --alert-success-background-color: #e5f8e8;
+  --alert-success-border-color: #34c759;
+
+  --alert-error-color: #ff3b30;
+  --alert-error-background-color: #ffebeb;
+  --alert-error-border-color: #ff3b30;
+
+  --alert-info-color: #5ac8fa;
+  --alert-info-background-color: #e8f7fd;
+  --alert-info-border-color: #5ac8fa;
+
+  --panel-background: #f5f5f7;
+  --panel-border-color: #d2d2d7;
+  --panel-color: #1d1d1f;
+
+  --modal-background: #fff;
+  --modal-color: #1d1d1f;
+  --modal-box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+
+  --pagination-link-color: #1d1d1f;
+  --pagination-border-color: #d2d2d7;
+
+  --category-color: #1d1d1f;
+  --category-background-color: #fff;
+  --category-border-color: #000;
+  --category-link-color: #1d1d1f;
+  --category-link-hover-color: #1d1d1f;
+
+  --item-border-color: #d2d2d7;
+  --item-padding: 8px;
+  --item-title-link-font-weight: 600;
+
+  --item-status-read-title-link-color: #6e6e73;
+  --item-status-read-title-focus-color: #6e6e73;
+
+  --item-meta-focus-color: #6e6e73;
+  --item-meta-li-color: #86868b;
+
+  --current-item-border-width: 3px;
+  --current-item-border-color: #0071e3;
+  --current-item-box-shadow: none;
+
+  --entry-header-border-color: #d2d2d7;
+  --entry-header-title-link-color: #1d1d1f;
+  --entry-content-color: #1d1d1f;
+  --entry-content-code-color: #1d1d1f;
+  --entry-content-code-background: #f5f5f7;
+  --entry-content-code-border-color: #d2d2d7;
+  --entry-content-quote-color: #6e6e73;
+  --entry-content-abbr-border-color: #6e6e73;
+  --entry-enclosure-border-color: #1d1d1f;
+
+  --parsing-error-color: #1d1d1f;
+  --feed-parsing-error-background-color: #fff2d4;
+  --feed-parsing-error-border-style: solid;
+  --feed-parsing-error-border-color: #ffd60a;
+
+  --feed-has-unread-background-color: #e5f8e8;
+  --feed-has-unread-border-style: solid;
+  --feed-has-unread-border-color: #34c759;
+
+  --category-has-unread-background-color: #e5f8e8;
+  --category-has-unread-border-style: solid;
+  --category-has-unread-border-color: #34c759;
+
+  --keyboard-shortcuts-li-color: #1d1d1f;
+
+  --counter-color: #6e6e73;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --body-color: #c9d1d9;
+    --body-background: #0d1117;
+    --hr-border-color: #30363d;
+    --title-color: #c9d1d9;
+    --link-color: #58a6ff;
+    --link-focus-color: #1f6feb;
+    --link-hover-color: #1f6feb;
+    --link-visited-color: #bf5af2;
+
+    --header-list-border-color: #30363d;
+    --header-link-color: #c9d1d9;
+    --header-link-focus-color: #58a6ff;
+    --header-link-hover-color: #58a6ff;
+    --header-active-link-color: #8b949e;
+
+    --page-header-title-border-color: #30363d;
+
+    --logo-color: #c9d1d9;
+    --logo-hover-color-span: #c9d1d9;
+
+    --table-border-color: #30363d;
+    --table-th-background: #161b22;
+    --table-th-color: #c9d1d9;
+    --table-tr-hover-background-color: #161b22;
+    --table-tr-hover-color: #c9d1d9;
+
+    --button-primary-border-color: #30363d;
+    --button-primary-background: #238636;
+    --button-primary-color: #ffffff;
+    --button-primary-focus-border-color: #8b949e;
+    --button-primary-focus-background: #238636;
+
+    --input-border: 1px solid #30363d;
+    --input-background: #161b22;
+    --input-color: #c9d1d9;
+    --input-placeholder-color: #8b949e;
+
+    --input-focus-color: #ffffff;
+    --input-focus-border-color: #58a6ff;
+    --input-focus-box-shadow: 0 0 0 4px rgba(88, 166, 255, 0.25);
+
+    --alert-color: #c9d1d9;
+    --alert-background-color: #161b22;
+    --alert-border-color: #30363d;
+
+    --alert-success-color: #c9d1d9;
+    --alert-success-background-color: #161b22;
+    --alert-success-border-color: #30363d;
+
+    --alert-error-color: #c9d1d9;
+    --alert-error-background-color: #161b22;
+    --alert-error-border-color: #30363d;
+
+    --alert-info-color: #c9d1d9;
+    --alert-info-background-color: #161b22;
+    --alert-info-border-color: #30363d;
+
+    --panel-background: #161b22;
+    --panel-border-color: #30363d;
+    --panel-color: #c9d1d9;
+
+    --modal-background: #161b22;
+    --modal-color: #c9d1d9;
+    --modal-box-shadow: 0 0 10px rgba(88, 166, 255, 0.25);
+
+    --pagination-link-color: #c9d1d9;
+    --pagination-border-color: #30363d;
+
+    --category-color: #c9d1d9;
+    --category-background-color: #161b22;
+    --category-border-color: #30363d;
+    --category-link-color: #c9d1d9;
+    --category-link-hover-color: #58a6ff;
+
+    --item-border-color: #30363d;
+    --item-padding: 4px;
+    --item-title-link-font-weight: 400;
+
+    --item-status-read-title-link-color: #8b949e;
+    --item-status-read-title-focus-color: #58a6ff;
+
+    --item-meta-focus-color: #c9d1d9;
+    --item-meta-li-color: #c9d1d9;
+
+    --current-item-border-width: 2px;
+    --current-item-border-color: #58a6ff;
+    --current-item-box-shadow: 0 0 0 4px rgba(88, 166, 255, 0.25);
+
+    --entry-header-border-color: #30363d;
+    --entry-header-title-link-color: #c9d1d9;
+    --entry-content-color: #c9d1d9;
+    --entry-content-code-color: #c9d1d9;
+    --entry-content-code-background: #15191e;
+    --entry-content-code-border-color: #2e343b;
+    --entry-content-quote-color: #8b949e;
+    --entry-content-abbr-border-color: #8b949e;
+    --entry-enclosure-border-color: #30363d;
+
+    --parsing-error-color: #c9d1d9;
+    --feed-parsing-error-background-color: #3d0000;
+    --feed-parsing-error-border-style: solid;
+    --feed-parsing-error-border-color: #f85149;
+
+    --feed-has-unread-background-color: #161b22;
+    --feed-has-unread-border-style: solid;
+    --feed-has-unread-border-color: #58a6ff;
+
+    --category-has-unread-background-color: #161b22;
+    --category-has-unread-border-style: solid;
+    --category-has-unread-border-color: #58a6ff;
+
+    --keyboard-shortcuts-li-color: #c9d1d9;
+
+    --counter-color: #c9d1d9;
+  }
+
+  html {
+    color-scheme: dark;
+  }
+}
+
+/* globals */
+:root {
+  /* https://systemfontstack.com/ */
+  --font-family-sans: -apple-system, BlinkMacSystemFont, avenir next, avenir, segoe ui, helvetica neue, Adwaita Sans, Cantarell, Ubuntu, roboto, noto, helvetica, arial, sans-serif;
+  --font-family-serif: Iowan Old Style, Apple Garamond, Baskerville, Times New Roman, Droid Serif, Times, Source Serif Pro, serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;
+  --font-family-mono: Menlo, Consolas, Monaco, Adwaita Mono, Liberation Mono, Lucida Console, monospace;
+
+  --entry-content-font-family: var(--font-family-sans);
+  --entry-content-font-weight: normal;
+  --font-family: var(--font-family-sans);
+
+  --spacing-small: 0.2rem;
+  --spacing-medium: 0.5rem;
+  --spacing-large: 1rem;
+  --spacing-xlarge: 1.2rem;
+  --spacing-xxlarge: 1.4rem;
+  --font-size-small: 0.8rem;
+  --font-size-medium: 0.9rem;
+  --font-size-large: 1.3rem;
+  --font-size-xlarge: 1.8rem;
+  --border-radius-small: 4px;
+  --border-radius-medium: 0.4em;
+  --border-radius-large: 8px;
+  --line-height-small: 1.1rem;
+  --line-height-medium: 1.4rem;
+  --line-height-large: 1.8rem;
+
+  /* category colors */
+
+  /* cat 1 is special, or not used? */
+  --cat-1-color: #fff;
+  --cat-1-background-color: #026e00;
+
+  --cat-2-color: #fff;
+  --cat-2-background-color: #F6821F;
+
+  --cat-3-color: #fff;
+  --cat-3-background-color: purple;
+
+  --cat-4-color: #fff;
+  --cat-4-background-color: #67B8DE;
+
+  --cat-5-color: #000;
+  --cat-5-background-color: #F1E9D2;
+
+  --cat-6-color: #fff;
+  --cat-6-background-color: #0769ad;
+
+  --cat-7-color: #fff;
+  --cat-7-background-color: #7A86B8;
+
+  --cat-8-color: #0F0;
+  --cat-8-background-color: #000;
+
+  --cat-9-color: #fff;
+  --cat-9-background-color: #686868;
+
+  --cat-10-color: #000;
+  --cat-10-background-color: #f5be04;
+
+  --cat-11-color: #fff;
+  --cat-11-background-color: #0060df;
+
+  --cat-12-color: #fff;
+  --cat-12-background-color: #009930;
+
+  --cat-13-color: #fff;
+  --cat-13-background-color: #680b66;
+
+  --cat-14-color: #fff;
+  --cat-14-background-color: #37751d;
+
+  --cat-15-color: #fff;
+  --cat-15-background-color: #21759b;
+
+  --cat-16-color: #47b353;
+  --cat-16-background-color: #3e474a;
+
+  --cat-17-color: #FFF;
+  --cat-17-background-color: #1d63ed;
+
+}
+
+html {
+  /* browser can change this to use dark theme */
+  color-scheme: light;
+  /* Use dynamic font size based on view width */
+  font-size: clamp(16px, -0.875rem + 8.333vw, 18px);
+  margin: 0 var(--spacing-large);
+}
+
+h1,
+h2,
+h3 {
+  text-wrap: balance;
+}
+
+
+
+/* fix side-by-side content on mobile like reddit */
+@media (max-width: 620px) {
+  article.entry-content table td {
+    display: table-row;
+  }
+}
+
+
+/* menu length mod */
+@media (min-width: 620px) {
+  .header nav {
+    flex-wrap: wrap;
+  }
+  .header .logo {
+    padding-right: 0;
+    padding-bottom: 0.6em;
+
+    a:after {
+      content: "Capacitor";
+      padding-left: 0.3em;
+      font-weight: bold;
+    }
+  }
+}
+
+
+/* safer confirms */
+.confirm button {
+  border: 1px solid red;
+  border-radius: var(--border-radius-medium);
+  padding: 0.2em 0.6em;
+  margin-left: 0.5em;
+}
+
+
+.item-meta-icons {
+  margin-top: 0.8em !important;
+}
+
+
+/* nicer titles on boxes */
+.item-header {
+  display: flex;
+  align-items: baseline;
+
+  .item-title {
+    flex: auto;
+
+    a {
+      width: 100%;
+    }
+  }
+}
+
+.entry header, .entry-header { /* yes they are the same thing, maybe typo in app css */
+  
+  padding-bottom: 1em;
+
+  /* remove duplicated info */
+  .entry-author, 
+  .entry-external-link {
+    display: none;
+  }
+
+  .entry-date {
+    text-align: center;
+  }
+}
+
+/* similar pages have different names, use color to relate them */
+/* all feed type links */
+.item-meta-icons-feeds a, a[href="/feeds"] {
+  &:link,
+  &:visited {
+    color: #ff7b06;
+  }
+}
+
+/* all entry type links */
+.item-meta-icons-entries a, 
+.entry-website a,  
+a[href="/unread"], 
+.item.feed-item .item-title a, 
+.item.category-item .item-title a,
+a.page-link[href*="entries"] {
+  &:link,
+  &:visited {
+    color: #199719;
+  }
+}
+
+/* clicking the cat titles does the same. unneeded confusion */
+.item.category-item .item-meta-icons-entries {
+  display: none;
+}
+
+/* make errors more uniform in ui */
+.error-feeds-counter-wrapper {
+  color: red;
+  font-weight: bold;
+  .error-feeds-counter:before {
+    content: "!";
+  }
+}
+
+.parsing-error:before {
+  content: "!";
+  color: red;
+  font-weight: bold;
+}
+
+.parsing-error {
+  margin-top: 1em;
+}
+
+/* pretty boxes */
+.item {
+  &.feed-item, 
+  &.entry-item,
+  &.category-item {
+    border-radius: var(--border-radius-medium);
+    padding: 0.8em;
+  }
+}
+
+.item-meta-info-feed-count {
+  display: none !important;
+}
+
+.category-item-total {
+  color: var(--counter-color);
+}
+
+.parsing-error {
+  margin-top: 1em;
+}
+
+/* try to un-wonk icons */
+.icon {
+  vertical-align: middle;
+  height: 1em;
+  width: 1.5em;
+}
+
+ul#header-menu li {
+  list-style: none;
+}
+
+/* entry ui */
+section.page-header nav, .pagination, .pagination > div > div {
+  margin: 0.5em 0;
+}
+
+.pagination a {
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+/* mini elevator  */
+a#elevator, a.elevator {
+  visibility: hidden;
+  width: 1.5em;
+  height: 1.3em;
+
+  svg {
+    visibility: visible;
+  }
+}
+
+
+/* mini menu buttons/links */
+.page-header nav {
+
+  li {
+    display: inline;
+  }
+
+  .page-button,
+  .page-link {
+    visibility: hidden;
+    width: 1.5em;
+    height: 1.3em;
+    display: inline-block; /* for the links */
+
+    svg {
+      visibility: visible;
+    }
+  }
+}
+
+
+/* Categories */
+/* colors taken from tags on my blog at random */
+/* categories as tags/pills */
+.category {
+  border: none;
+  border-radius: 0;
+  margin-left: 0.3em;
+  padding: 0;
+  white-space: nowrap;
+  background: transparent;
+
+  a {
+    background-color: rgb(108, 117, 125);
+    border-radius: 0.7em;
+    display: inline-block;
+    padding: 0.4em 0.8em;
+    margin: 0.2em;
+    color: #fff;
+    font-weight: bold;
+    text-decoration: none;
+
+    /* Colored categories */
+    &[href="/category/1/entries"] {
+      color: var(--cat-1-color);
+      background-color: var(--cat-1-background-color);
+    }
+
+    &[href="/category/2/entries"] {
+      color: var(--cat-2-color);
+      background-color: var(--cat-2-background-color);
+    }
+
+    &[href="/category/3/entries"] {
+      color: var(--cat-3-color);
+      background-color: var(--cat-3-background-color);
+    }
+
+    &[href="/category/4/entries"] {
+      color: var(--cat-4-color);
+      background-color: var(--cat-4-background-color);
+    }
+
+    &[href="/category/5/entries"] {
+      color: var(--cat-5-color);
+      background-color: var(--cat-5-background-color);
+    }
+
+    &[href="/category/6/entries"] {
+      color: var(--cat-6-color);
+      background-color: var(--cat-6-background-color);
+    }
+
+    &[href="/category/7/entries"] {
+      color: var(--cat-7-color);
+      background-color: var(--cat-7-background-color);
+    }
+
+    &[href="/category/8/entries"] {
+      color: var(--cat-8-color);
+      background-color: var(--cat-8-background-color);
+    }
+
+    &[href="/category/9/entries"] {
+      color: var(--cat-9-color);
+      background-color: var(--cat-9-background-color);
+    }
+
+    &[href="/category/10/entries"] {
+      color: var(--cat-10-color);
+      background-color: var(--cat-10-background-color);
+    }
+
+    &[href="/category/11/entries"] {
+      color: var(--cat-11-color);
+      background-color: var(--cat-11-background-color);
+    }
+
+    &[href="/category/12/entries"] {
+      color: var(--cat-12-color);
+      background-color: var(--cat-12-background-color);
+    }
+
+    &[href="/category/13/entries"] {
+      color: var(--cat-13-color);
+      background-color: var(--cat-13-background-color);
+    }
+
+    &[href="/category/14/entries"] {
+      color: var(--cat-14-color);
+      background-color: var(--cat-14-background-color);
+    }
+
+    &[href="/category/15/entries"] {
+      color: var(--cat-15-color);
+      background-color: var(--cat-15-background-color);
+    }
+
+    &[href="/category/16/entries"] {
+      color: var(--cat-16-color);
+      background-color: var(--cat-16-background-color);
+    }
+
+    &[href="/category/17/entries"] {
+      color: var(--cat-17-color);
+      background-color: var(--cat-17-background-color);
+    }
+
+  }
+}
+
+/* categories as boxes */
+.item.category-item .item-title {
+  border: none;
+  border-radius: 0;
+  margin-left: 0;
+  padding: 0;
+  white-space: nowrap;
+  background: transparent;
+
+  a {
+    &:before {
+      content: " ";
+      background-color: rgb(108, 117, 125);
+      border-radius: 0.7em;
+      display: inline-block;
+      color: #fff;
+      font-weight: bold;
+      text-decoration: none;
+      width: 1.5em;
+      height: 0.8em;
+      margin-right: 0.3em;
+    }
+
+    /* Colored categories */
+    &[href="/category/1/entries"]:before {
+      color: var(--cat-1-color);
+      background-color: var(--cat-1-background-color);
+    }
+
+    &[href="/category/2/entries"]:before {
+      color: var(--cat-2-color);
+      background-color: var(--cat-2-background-color);
+    }
+
+    &[href="/category/3/entries"]:before {
+      color: var(--cat-3-color);
+      background-color: var(--cat-3-background-color);
+    }
+
+    &[href="/category/4/entries"]:before {
+      color: var(--cat-4-color);
+      background-color: var(--cat-4-background-color);
+    }
+
+    &[href="/category/5/entries"]:before {
+      color: var(--cat-5-color);
+      background-color: var(--cat-5-background-color);
+    }
+
+    &[href="/category/6/entries"]:before {
+      color: var(--cat-6-color);
+      background-color: var(--cat-6-background-color);
+    }
+
+    &[href="/category/7/entries"]:before {
+      color: var(--cat-7-color);
+      background-color: var(--cat-7-background-color);
+    }
+
+    &[href="/category/8/entries"]:before {
+      color: var(--cat-8-color);
+      background-color: var(--cat-8-background-color);
+    }
+
+    &[href="/category/9/entries"]:before {
+      color: var(--cat-9-color);
+      background-color: var(--cat-9-background-color);
+    }
+
+    &[href="/category/10/entries"]:before {
+      color: var(--cat-10-color);
+      background-color: var(--cat-10-background-color);
+    }
+
+    &[href="/category/11/entries"]:before {
+      color: var(--cat-11-color);
+      background-color: var(--cat-11-background-color);
+    }
+
+    &[href="/category/12/entries"]:before {
+      color: var(--cat-12-color);
+      background-color: var(--cat-12-background-color);
+    }
+
+    &[href="/category/13/entries"]:before {
+      color: var(--cat-13-color);
+      background-color: var(--cat-13-background-color);
+    }
+
+    &[href="/category/14/entries"]:before {
+      color: var(--cat-14-color);
+      background-color: var(--cat-14-background-color);
+    }
+
+    &[href="/category/15/entries"]:before {
+      color: var(--cat-15-color);
+      background-color: var(--cat-15-background-color);
+    }
+
+    &[href="/category/16/entries"]:before {
+      color: var(--cat-16-color);
+      background-color: var(--cat-16-background-color);
+    }
+
+    &[href="/category/17/entries"]:before {
+      color: var(--cat-17-color);
+      background-color: var(--cat-17-background-color);
+    }
+
+  }
+}
+
+/* settings  */
+fieldset {
+  border-radius: var(--border-radius-medium);
+  border: 1px dotted #000;
+  padding: 0em 1em 1em 1em;
+
+  legend {
+    font-weight: bold;
+  }
+
+  .buttons {
+    margin-top: 1em;
+
+    .button {
+      border-radius: var(--border-radius-small);
+    }
+  }
+}
+
+/* forms */
+label {
+  margin-top: 0.8em;
+}
+input[type="search"], input[type="url"], input[type="password"], input[type="text"], input[type="number"], textarea, select {
+  width: 100%;
+  line-height: 1.3em;
+  font-size: 1em;
+  border-radius: var(--border-radius-small);
+  margin-top: 6px;
+}
+
+
+/* below is mostly andymason's theme with SMALL tweaks */
+/* entry content */
+.entry-content {
+  font-size: var(--font-size-medium);
+  line-height: var(--line-height-medium);
+
+  iframe,
+  video,
+  /* fix reddit content thumbnails  */
+  *:not([href*="reddit"]) > img,
+  canvas,
+  embed,
+  object,
+  pre {
+    border: none !important;
+    border-radius: var(--border-radius-large);
+    display: block;
+    margin: 0 calc(var(--spacing-large) * -1);
+    width: calc(100% + var(--spacing-large) * 2);
+    max-width: inherit;
+    height: auto;
+    max-height: 90svh;
+  }
+
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-weight: 700;
+    margin: var(--spacing-xlarge) var(--spacing-small);
+  }
+
+  h2 {
+    font-size: var(--font-size-large);
+    letter-spacing: -0.04em;
+  }
+
+  pre {
+    padding: var(--spacing-large) var(--spacing-xlarge);
+    border-radius: var(--border-radius-medium);
+    font-family: var(--font-family-mono);
+    font-size: var(--font-size-medium);
+    line-height: var(--line-height-small);
+
+    code {
+      font-variant-ligatures: none;
+      font-size: var(--font-size-small);
+    }
+  }
+
+  p,
+  blockquote,
+  details,
+  address,
+  table {
+    margin: var(--spacing-xlarge) 0;
+
+    &>code {
+      padding: 0 var(--spacing-small);
+    }
+  }
+
+  li,
+  label,
+  dt,
+  dd {
+    font-size: var(--font-size-medium);
+    line-height: var(--line-height-medium);
+  }
+
+  blockquote {
+    line-height: var(--line-height-medium);
+  }
+
+  code {
+    font-size: var(--font-size-medium);
+    border-radius: var(--border-radius-small);
+    font-family: var(--font-family-mono);
+  }
+
+  a {
+
+    &:link,
+    &:visited {
+      text-decoration: none;
+    }
+
+    &:active,
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  figcaption {
+    color: var(--body-color);
+    text-transform: initial;
+    line-height: var(--line-height-small);
+    margin: 0 auto;
+    text-align: center;
+    max-width: 100ch;
+    font-size: var(--font-size-small);
+  }
+
+  ul,
+  ol {
+    margin-left: var(--spacing-xlarge);
+    font-size: 1rem;
+    text-wrap: balance;
+
+    li {
+      margin: var(--spacing-small) 0;
+    }
+  }
+
+  ul {
+    list-style-type: disc;
+    color: var(--entry-content-color);
+  }
+
+  figure {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    /* Some sites nest figure elements */
+    >figure {
+      width: 100%;
+    }
+
+    >blockquote {
+      align-self: flex-start;
+    }
+
+    >a:has(img, iframe, video) {
+      width: 100%;
+    }
+
+    figcaption {
+      margin-top: var(--spacing-medium);
+    }
+
+    cite {
+      font-size: var(--font-size-small);
+      display: inline-block;
+    }
+  }
+
+  /* Fix Youtube embeds ( */
+  iframe[src*="www.youtube"] {
+    aspect-ratio: 16/9;
+    height: auto;
+  }
+}
+
+.entry header h1 {
+  font-size: var(--font-size-xlarge);
+  margin: var(--spacing-xxlarge) 0 var(--spacing-large);
+  text-align: center;
+}
+
+.entry-actions {
+
+  ul {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  span {
+    display: none;
+  }
+}
+
+.entry-meta {
+  text-align: center;
+  display: flex;
+  flex-direction: column-reverse;
+
+  .category {
+    margin-bottom: 0.5em;
+  }
+}
+
+.entry-tags {
+  text-align: center;
+  margin: 0 0 var(--spacing-xxlarge) 0;
+}
+
+.header nav {
+  justify-content: center;
+}
