@@ -14,9 +14,20 @@ See https://benhoskins.dev/miniflux-capacitor-theme/ for more info.
 
 ## Screenshots
 
+### Miniflux Capacitor Categories 
 ![Miniflux Capacitor Categories](./screenshots/miniflux-capacitor-categories.png)
+
+### Miniflux Capacitor Entries
 ![Miniflux Capacitor Entries](./screenshots/miniflux-capacitor-entries.png)
+
+### Miniflux Capacitor Feed Errors
 ![Miniflux Capacitor Feed Errors](./screenshots/miniflux-capacitor-feed-errors.png)
+
+### Miniflux Capacitor Feeds
 ![Miniflux Capacitor Feeds](./screenshots/miniflux-capacitor-feeds.png)
+
+### Miniflux Capacitor Settings
 ![Miniflux Capacitor Settings](./screenshots/miniflux-capacitor-settings.png)
-![Miniflux Capacitor Artcile](./screenshots/miniflux-capacitor-article.png)
+
+### Miniflux Capacitor Article
+![Miniflux Capacitor Article](./screenshots/miniflux-capacitor-article.png)
